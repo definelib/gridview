@@ -99,7 +99,7 @@ define('GridView/Panel/Main', function (require, module, exports) {
 
                         //单元格里面的子元素触发的。
                         //符合监听的元素选择规则，则触发。
-                        if (target === event.target) {
+                        if (target.contains(event.target)) {
                             meta.emitter.fire('click', 'cell', cell.name, click, args);
                         }
                     }
