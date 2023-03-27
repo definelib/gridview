@@ -79,6 +79,7 @@ module.exports = {
                 list = Data.get(list, page);//截取分页对应的列表片段。
             }
 
+           
             meta.page = page;
             Main.render(list);
             Main.$.toggleClass('no-pager', !page);

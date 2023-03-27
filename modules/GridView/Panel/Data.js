@@ -14,9 +14,9 @@ module.exports = {
         let items = list.slice(beginIndex, endIndex);
 
         return items;
-
     },
 };
+
 
 
 

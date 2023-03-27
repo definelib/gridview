@@ -9,7 +9,6 @@ module.exports = function (meta) {
     let pager = null;
 
 
-
     //初始阶段适合用来绑定事件。
     panel.on('init', function () {
         pager = new Pager({

@@ -9,6 +9,7 @@ const Emitter = require('@definejs/emitter');
 const Meta = require('./GridView/Meta');
 const Template = require('./GridView/Template');
 const Panel = require('./GridView/Panel');
+const Sort = require('./GridView/Sort');
 
 
 
@@ -28,6 +29,8 @@ class GridView {
         });
 
         meta.tpl = Template.create(meta);
+        meta.Sort = Sort.create(meta);
+        
         mapper.set(this, meta);
 
         //指定了公开 meta 对象。
@@ -65,9 +68,10 @@ class GridView {
             this.$ = meta.panel.$;
         }
 
-        meta.panel.render(list, page);
+        list = meta.Sort.init(list);
 
-        
+        meta.list = list;
+        meta.panel.render(list, page);
        
     }
 

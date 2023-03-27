@@ -1,4 +1,4 @@
-﻿
+
 
 define('GridView/Panel', function (require, module, exports) {
     const Panel = require('@definejs/panel');
@@ -79,6 +79,7 @@ define('GridView/Panel', function (require, module, exports) {
                     list = Data.get(list, page);//截取分页对应的列表片段。
                 }
 
+               
                 meta.page = page;
                 Main.render(list);
                 Main.$.toggleClass('no-pager', !page);

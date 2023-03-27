@@ -7,7 +7,6 @@ const TableResizer = require('@definelib/table-resizer');
 
 module.exports = function (meta) {
     let panel = new Panel(`[data-panel="${meta.id}/Main"]`);
-
     let table = null;
     let resizer = null;
 
@@ -95,11 +94,11 @@ module.exports = function (meta) {
                 let { click, } = cell.column.field; //如 { click: '[data-cmd]', }
 
                 if (click) {
-                    let target = $(element).find(click).get(0);
+                    let target = $(element).find(click).get(0); //可能为空。
 
                     //单元格里面的子元素触发的。
                     //符合监听的元素选择规则，则触发。
-                    if (target === event.target) {
+                    if (target && target.contains(event.target)) {
                         meta.emitter.fire('click', 'cell', cell.name, click, args);
                     }
                 }
